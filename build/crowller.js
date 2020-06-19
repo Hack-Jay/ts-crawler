@@ -83,7 +83,3 @@ var Crowller = /** @class */ (function () {
     return Crowller;
 }());
 exports.default = Crowller;
-// const secret = "secretKey";
-// const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`;
-// const zAnalyzer = ZAnalyzer.getInstance();
-// const crowller = new Crowller(url, zAnalyzer);

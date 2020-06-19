@@ -28,9 +28,3 @@ export default class Crowller {
     fs.writeFileSync(this.filePath, content);
   }
 }
-
-// const secret = "secretKey";
-// const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`;
-// const zAnalyzer = ZAnalyzer.getInstance();
-
-// const crowller = new Crowller(url, zAnalyzer);
