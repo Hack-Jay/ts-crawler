@@ -64,5 +64,8 @@ var LoginController = /** @class */ (function () {
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
     ], LoginController.prototype, "home", null);
+    LoginController = __decorate([
+        decorator_1.controller
+    ], LoginController);
     return LoginController;
 }());

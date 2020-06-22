@@ -1,12 +1,13 @@
 import "reflect-metadata";
 import { Request, Response } from "express";
 import { getResponseData } from "../utils/utils";
-import { get, post } from "./decorator";
+import { get, post, controller } from "./decorator";
 
 interface BodyRequest extends Request {
   body: { [key: string]: string | undefined };
 }
 
+@controller
 class LoginController {
   @post("/login")
   login(req: BodyRequest, res: Response) {
