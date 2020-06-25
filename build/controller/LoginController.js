@@ -9,9 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoginController = void 0;
 require("reflect-metadata");
-var utils_1 = require("../utils/utils");
-var decorator_1 = require("./decorator");
+var util_1 = require("../utils/util");
+var decorator_1 = require("../decorator");
 var LoginController = /** @class */ (function () {
     function LoginController() {
     }
@@ -19,15 +20,15 @@ var LoginController = /** @class */ (function () {
         var password = req.body.password;
         var isLogin = req.session ? req.session.login : false;
         if (isLogin) {
-            res.json(utils_1.getResponseData(false, "已经登陆过"));
+            res.json(util_1.getResponseData(false, "已经登陆过"));
         }
         else {
             if (password === "123" && req.session) {
                 req.session.login = true;
-                res.json(utils_1.getResponseData(true));
+                res.json(util_1.getResponseData(true));
             }
             else {
-                res.json(utils_1.getResponseData(false, "登陆失败"));
+                res.json(util_1.getResponseData(false, "登陆失败"));
             }
         }
     };
@@ -35,7 +36,7 @@ var LoginController = /** @class */ (function () {
         if (req.session) {
             req.session.login = false;
         }
-        return utils_1.getResponseData(true);
+        res.json(util_1.getResponseData(true));
     };
     LoginController.prototype.home = function (req, res) {
         var isLogin = req.session ? req.session.login : false;
@@ -64,5 +65,9 @@ var LoginController = /** @class */ (function () {
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
     ], LoginController.prototype, "home", null);
+    LoginController = __decorate([
+        decorator_1.controller('/')
+    ], LoginController);
     return LoginController;
 }());
+exports.LoginController = LoginController;

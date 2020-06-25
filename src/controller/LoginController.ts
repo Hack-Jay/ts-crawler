@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import { Request, Response } from "express";
-import { getResponseData } from "../utils/utils";
-import { get, post } from "./decorator";
+import { getResponseData } from "../utils/util";
+import { get, post, controller } from "../decorator";
 
 interface BodyRequest extends Request {
   body: { [key: string]: string | undefined };
 }
-
-class LoginController {
+@controller('/')
+export class LoginController {
   @post("/login")
   login(req: BodyRequest, res: Response) {
     const { password } = req.body;
@@ -25,11 +25,11 @@ class LoginController {
   }
 
   @get("/logout")
-  logout(req: Request, res: Response) {
+  logout(req: Request, res: Response): void {
     if (req.session) {
       req.session.login = false;
     }
-    return getResponseData(true);
+    res.json(getResponseData(true));
   }
 
   @get("/")
